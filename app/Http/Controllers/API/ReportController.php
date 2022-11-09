@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
+
 use DB;
 class ReportController extends Controller
 {
@@ -48,7 +50,13 @@ public function get_all_stock_report(Request $request){
 
 }
 public function customerhistory(Request $request){
-    //print_r($_REQUEST);exit;
+    $client_id = $request->client_id;
+    $customer_id = $request->customer_id;
+    $clientInfo = DB::table('contacts')->select('*')->where('contact_id',$customer_id)->first();
+    $sell_list = DB::table('sells')->select('*')->where(['client_id'=>$client_id,'contact_id'=>$customer_id])->get();
+    $receive_list = DB::table('amount_payments')->select('*')->where(['client_id'=>$client_id,'contact_id'=>$customer_id,'type'=>1])->get();
+    return response()->json(['clientInfo'=>$clientInfo,'invoice_list'=>$sell_list,'receive_list'=>$receive_list]);
+
 }
 public function get_all_stock_report_with_filter(Request $request){
     $client_id = $request->client_id;

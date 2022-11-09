@@ -12,7 +12,7 @@ export default {
         this.cardTitle ="Customer list"
     
         this.isAddItem = true;
-this.isEditBtn = false;
+this.isEditBtn = true;
 this.isDelBtn = false;
         this.columnsHead.push('Sn','Name','Phone','Paid amount', 'Due Amount', 'Action')
         this.columnsBody.push('full_name','phone','paid_amount','due_amount')  

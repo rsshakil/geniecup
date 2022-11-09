@@ -77,7 +77,7 @@ use Illuminate\Http\Request;
 		Route::post('/register-company', 'API\FreeTrail\FreeTrailActivatorController@store');
 		Route::post('/get_all_stock_report', 'API\ReportController@get_all_stock_report');
 		Route::post('/get_all_stock_report_with_filter', 'API\ReportController@get_all_stock_report_with_filter');
-		Route::get('/customerhistory', 'API\ReportController@customerhistory');
+		Route::post('/customerhistory', 'API\ReportController@customerhistory');
 		// Route::post('/permission_check', 'API\PermissionController@check');
 
 	// });
