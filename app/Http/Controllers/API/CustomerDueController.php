@@ -36,7 +36,7 @@ class CustomerDueController extends Controller
     {
         $dataSorting = $request->sorting == 'false'?10:$request->sorting;
 
-      $query =Sell::select(
+      $query =contact::select(
             DB::raw('SUM(total_quantity) AS sum_of_total_quantity'),
             DB::raw('SUM(total_amount) AS sum_of_total_amount'),
             DB::raw('SUM(total_paid_amount) AS sum_of_total_paid_amount'),
@@ -47,15 +47,15 @@ class CustomerDueController extends Controller
             'mobile',
             'full_name'
         )
-        ->join('contacts','sells.contact_id','contacts.contact_id')
-        ->where('sells.client_id',$request->client_id);
+        ->letfJoin('sells','sells.contact_id','contacts.contact_id')
+        ->where('contacts.client_id',$request->client_id);
         $search = $request->search;
         if($search != 'false'){
             $query->where('contacts.full_name', 'LIKE', "%{$search}%");
         }
 
         $data = $query->groupBy('sells.contact_id')
-        ->orderBy('sells.sell_id','DESC')
+        ->orderBy('contacts.contact_id','DESC')
         ->paginate($dataSorting);
       
        return CustomerDueListResource::collection($data);
