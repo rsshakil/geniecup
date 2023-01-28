@@ -47,7 +47,7 @@ class CustomerDueController extends Controller
             'mobile',
             'full_name'
         )
-        ->letfJoin('sells','sells.contact_id','contacts.contact_id')
+        ->leftJoin('sells','sells.contact_id','contacts.contact_id')
         ->where('contacts.client_id',$request->client_id);
         $search = $request->search;
         if($search != 'false'){
