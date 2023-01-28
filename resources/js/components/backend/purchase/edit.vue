@@ -64,6 +64,10 @@
                     <td style="text-align: right;">৳{{totalPrice}}</td>
                 </tr>
                  <tr>
+                    <td colspan="6" style="text-align: right;">Total Discount amount</td>
+                    <td style="text-align: right;">৳{{product_list_arr[0].total_discount_amount}}</td>
+                </tr>
+                 <tr>
                     <td colspan="6" style="text-align: right;">Total Paid amount</td>
                     <td style="text-align: right;">৳{{product_list_arr[0].total_paid_amount}}</td>
                 </tr>
