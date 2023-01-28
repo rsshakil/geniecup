@@ -65,6 +65,12 @@
                     <td></td>
                 </tr>
                  <tr>
+                    <td colspan="6" style="text-align: right;">Total Discount Amount</td>
+                    <td><input type="number" @input="updatePaidAmount" class="form-controll" v-model="inputData.total_discount_amount" placeholder="Discount Amount"></td>
+                    
+                    <td></td>
+                </tr>
+                 <tr>
                     <td colspan="6" style="text-align: right;">Total Paid Amount</td>
                     <td><input type="number" @input="updatePaidAmount" class="form-controll" v-model="inputData.total_paid_amount" placeholder="Paid Amount"></td>
                     
@@ -115,6 +121,7 @@ export default {
      
       inputData:{
         total_paid_amount:0,
+        total_discount_amount:0,
         total_due_amount:0,
         user_id:'',
         client_id:'',
@@ -137,9 +144,9 @@ updatePaidAmount(){
   if(this.inputData.total_paid_amount>this.totalPrice){
     this.toastMessage('error', 'You can not enter Over Price');
     this.inputData.total_paid_amount=0;
-    this.inputData.total_due_amount=this.totalPrice;
+    this.inputData.total_due_amount=this.totalPrice-this.inputData.total_discount_amount;
   }else{
-    this.inputData.total_due_amount=this.totalPrice-this.inputData.total_paid_amount;
+    this.inputData.total_due_amount=this.totalPrice-this.inputData.total_paid_amount-this.inputData.total_discount_amount;
   }
 },
 addStock(){
@@ -147,6 +154,7 @@ addStock(){
         client_id: Globals.user_info_client_id,
         contact_id: this.inputData.contact_id.contact_id,
         total_paid_amount: this.inputData.total_paid_amount,
+        total_discount_amount: this.inputData.total_discount_amount,
         total_due_amount: this.inputData.total_due_amount,
         total_amount: this.totalPrice,
         total_quantity: this.totalQuantity,
