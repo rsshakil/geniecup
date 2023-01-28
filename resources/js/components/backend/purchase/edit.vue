@@ -14,7 +14,7 @@
         <div class="row" id="printArea" v-can="['Admin_view']">
         <div class="col-12 text-center">
            <h2 style="text-align:center">{{clientInfo.first_name}}</h2>
-                        <Address style="text-align:center;margin-bottom: 0;">Address:{{clientInfo.last_name}}</Address>
+                        <Address style="text-align:center;margin-bottom: 0;padding-left:250px;padding-right:250px">{{clientInfo.last_name}}</Address>
                         <Address style="text-align:center;margin-bottom: 0;">Phone:{{clientInfo.phone}}</Address>
                         
                         </div>
