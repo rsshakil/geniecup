@@ -25,6 +25,7 @@ class CreateAmountPaymentsTable extends Migration
             $table->enum('type', ['1', '2'])->default('1')->comment('1collection2payment');
             $table->enum('status', ['0', '1'])->default('1')->comment('1active');
             $table->integer('entry_by')->unsigned()->comment('entry_by');
+            $table->date('manual_at')->nullable();
 			$table->dateTime('created_at')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('Time of creation');
 			$table->dateTime('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'))->comment('Time of Update');
         });

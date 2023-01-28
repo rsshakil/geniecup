@@ -55,6 +55,12 @@
                                         <input type="number" name="amount" class="form-control" v-model="inputData.amount" placeholder="Amount">
                                     </div>
                                 </div><!--col-6 end-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Date</label>
+                                        <input type="date" class="form-controll" placeholder="Date" v-model="inputData.manual_at">
+                                    </div>
+                                </div><!--col-6 end-->
 
                             </div>
                         </div>

@@ -25,6 +25,7 @@ class CreateSellsTable extends Migration
             $table->double('total_paid_amount',15,2)->default('0')->comment(' discount');
             $table->double('total_due_amount',15,2)->default('0')->comment(' discount');
             $table->double('total_discount_amount',15,2)->default('0')->comment(' discount');
+            $table->date('manual_at')->nullable();
 			$table->dateTime('created_at')->default(DB::raw('CURRENT_TIMESTAMP'))->comment('Time of creation');
 			$table->dateTime('updated_at')->default(DB::raw('CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP'))->comment('Time of Update');
         });

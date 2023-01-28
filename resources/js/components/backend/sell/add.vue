@@ -13,14 +13,17 @@
     
         <div class="row" v-can="['Admin_view']">
            
-                    <div class="col-md-6 col-lg-6">
+                    <div class="col-md-4 col-lg-4">
                         <multiselect v-model="inputData.contact_id" :options="customerList"
                             label="full_name" track-by="contact_id" :searchable="true" :multiple="false"
                             :close-on-select="true" :clear-on-select="false" :preserve-search="true"
                             open-direction="bottom" placeholder="Pick a Customer/Party">
                         </multiselect>
                     </div>
-                    <div class="col-md-6 col-lg-6">
+                    <div class="col-md-4 col-lg-4">
+                    <input type="date" class="form-controll" placeholder="Date" v-model="inputData.manual_at">
+                    </div>
+                    <div class="col-md-4 col-lg-4">
                         <multiselect v-model="inputData.product_id" :options="product_list_arr_select"
                             label="product_name" @select="getProductByid($event)" track-by="product_id" :searchable="true" :multiple="false"
                             :close-on-select="true" :clear-on-select="false" :preserve-search="true"
@@ -123,6 +126,7 @@ export default {
         total_paid_amount:0,
         total_discount_amount:0,
         total_due_amount:0,
+        manual_at:'',
         client_id:'',
         contact_id: '',
         product_id:'',
