@@ -78,6 +78,7 @@ class SellController extends Controller
                 'total_quantity'=>$request->total_quantity,
                 'total_amount'=>$request->total_amount,
                 'total_paid_amount'=>$request->total_paid_amount,
+                'total_discount_amount'=>$request->total_discount_amount,
                 'total_due_amount'=>$request->total_due_amount,
             ];
             $sell_id = Sell::insertGetId($purchase);
