@@ -256,10 +256,11 @@ class ProductController extends Controller
     public function get_all_client_products(Request $request){
         
         $client_id=$request->client_id;
-        $q = product::select('products.*',
+        $q = product::select('products.*','stock_details.stock_quantity',
         'product_categories.category_name')
         ->leftJoin('product_attribute_qties','product_attribute_qties.product_id','=','products.product_id')
-        ->leftJoin('product_categories','product_categories.product_categorie_id','=','products.category_id');
+        ->leftJoin('product_categories','product_categories.product_categorie_id','=','products.category_id')
+        ->leftJoin('stock_details','stock_details.product_id','=','products.product_id');
         // ->leftJoin('product_categories as product_sub_category','product_sub_category.product_categorie_id','=','products.sub_category_id')
         // ->leftJoin('type_controls as product_brands','product_brands.type_control_id','=','products.brand_id')
         // ->leftJoin('type_controls as product_manufacturers','product_manufacturers.type_control_id','=','products.manufacturer_id');

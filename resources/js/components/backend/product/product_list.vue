@@ -27,6 +27,7 @@
                     <th>Name</th>
                     <th>Caegory</th>
                     <th>Cost price</th>
+                     <th>Stock quantity</th>
                     <!-- <th>More</th> -->
                 </tr>
                 </thead>
@@ -41,6 +42,7 @@
                     <td>{{product.product_name}}</td>
                      <td>{{product.category_name}}</td>
                     <td style="text-align:right;">৳ {{product.p_cost_price}}</td>
+                    <td>{{product.stock_quantity}}</td>
                     <!-- <td>
                         <b-dropdown right split text="More" class=" custom_more_dropdown">
       <b-dropdown-item>Edit</b-dropdown-item>

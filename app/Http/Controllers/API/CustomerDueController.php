@@ -69,16 +69,18 @@ class CustomerDueController extends Controller
      */
     public function store(Request $request)
     {
+       
         $validator = Validator::make($request->all(), [
             'client_id' => 'required',
             'phone' => 'required',
-            "full_name" => "required|",
+            "full_name" => "required"
         ]);
 
         if ($validator->fails()) {
             
             return response()->json(array('result' => 400, 'message' => $validator->errors()->first()));
         }
+       
         DB::beginTransaction();
         try {
 
@@ -89,11 +91,12 @@ class CustomerDueController extends Controller
     
             $hash_password = Hash::make($password);
             $user_exist = User::where('email', $email)->first();
+             
             if ($user_exist) {
-                return redirect()->back()
-                     ->with("message","Your info duplicate found")
-                     ->with("message_type","danger");
+                 return response()->json(array('result' => 400, 'message' => 'Your info duplicate found'));
+                
             } else {
+             
                 $user = new User;
                 $user->name = $name;
                 $user->email = $email;
@@ -111,7 +114,7 @@ class CustomerDueController extends Controller
                 $user_role->syncRoles();
                 $user_role->assignRole($roles);
             }
-
+ 
             $data = array();
             $data['user_id']= $last_user_id;
             $data['phone']= $request->phone;

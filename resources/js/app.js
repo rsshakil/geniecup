@@ -164,7 +164,7 @@ var router = new VueRouter({
     linkActiveClass: "active", // active class for non-exact links.
     linkExactActiveClass: "active", // active class for *exact* links.
     mode: 'history',
-    base: '/geniecup/admin'
+    base: '/admin'
 });
 import App from './components/backend/Default/app.vue'
 new Vue({
