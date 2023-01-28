@@ -21,7 +21,7 @@
                         </multiselect>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                    <input type="date" class="form-controll" placeholder="Date" v-model="inputData.manual_at">
+                    <input type="date" class="form-controll" placeholder="Date" @input="changeDateformat" v-model="inputData.manual_at">
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <multiselect v-model="inputData.product_id" :options="product_list_arr_select"
@@ -152,6 +152,14 @@ updatePaidAmount(){
     this.inputData.total_due_amount=this.totalPrice-this.inputData.total_paid_amount-this.inputData.total_discount_amount;
   }
 },
+changeDateformat(){
+  var date = this.inputData.manual_at;
+  if(date!=''){
+    let d = date.split("/");
+    let ddd = d[2]+'-'+d[1]+'-'+d[0];
+    this.inputData.manual_at = ddd;
+  }
+},
 addStock(){
   var post_data = {
         client_id: Globals.user_info_client_id,
@@ -162,6 +170,7 @@ addStock(){
         total_amount: this.totalPrice,
         total_quantity: this.totalQuantity,
         product_items: this.product_list_arr,
+        manual_at:this.inputData.manual_at
       };
       console.log(post_data);
       
