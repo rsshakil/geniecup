@@ -81,7 +81,7 @@
                 </tr>
                  <tr>
                                         <td colspan="6" style="text-align: right;">Total Due Amount</td>
-                    <td>{{totalPrice-inputData.total_paid_amount}}</td>
+                    <td>{{totalPrice-inputData.total_paid_amount-inputData.total_discount_amount}}</td>
                     <td></td>
                 </tr>
                 </tbody>
@@ -150,7 +150,7 @@ updatePaidAmount(){
     this.inputData.total_paid_amount=0;
     this.inputData.total_due_amount=parseInt(this.totalPrice)-parseInt(this.inputData.total_discount_amount);
   }else{
-    
+
     this.inputData.total_due_amount=parseInt(this.totalPrice)-parseInt(this.inputData.total_paid_amount)-parseInt(this.inputData.total_discount_amount);
   }
 },

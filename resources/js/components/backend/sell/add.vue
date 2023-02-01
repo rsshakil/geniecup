@@ -81,7 +81,7 @@
                 </tr>
                  <tr>
                                         <td colspan="6" style="text-align: right;">Total Due Amount</td>
-                    <td>{{totalPrice-inputData.total_paid_amount}}</td>
+                    <td>{{totalPrice-inputData.total_paid_amount-inputData.total_discount_amount}}</td>
                     <td></td>
                 </tr>
                 </tbody>
