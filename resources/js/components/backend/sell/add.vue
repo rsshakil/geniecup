@@ -147,9 +147,10 @@ updatePaidAmount(){
   if(this.inputData.total_paid_amount>this.totalPrice){
     this.toastMessage('error', 'You can not enter Over Price');
     this.inputData.total_paid_amount=0;
-    this.inputData.total_due_amount=this.totalPrice-this.inputData.total_discount_amount;
+    this.inputData.total_due_amount=parseInt(this.totalPrice)-parseInt(this.inputData.total_discount_amount);
   }else{
-    this.inputData.total_due_amount=this.totalPrice-this.inputData.total_paid_amount-this.inputData.total_discount_amount;
+    console.log('amount changes',this.inputData.total_discount_amount);
+    this.inputData.total_due_amount=parseInt(this.totalPrice)-parseInt(this.inputData.total_paid_amount)-parseInt(this.inputData.total_discount_amount);
   }
 },
 changeDateformat(){
