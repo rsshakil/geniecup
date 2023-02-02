@@ -141,7 +141,6 @@ class BlancePayController extends Controller
                 'full_name'
             )
             ->join('contacts','amount_payments.contact_id','contacts.contact_id')
-            ->where('amount_payments.client_id',$request->client_id)
             ->where('amount_payments.contact_id',$id);
             $search = $request->search;
             if($search != 'false'){
