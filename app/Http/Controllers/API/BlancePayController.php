@@ -141,16 +141,10 @@ class BlancePayController extends Controller
                 'full_name'
             )
             ->join('contacts','amount_payments.contact_id','contacts.contact_id')
-            ->where('amount_payments.contact_id',$id);
-            $search = $request->search;
-            if($search != 'false'){
-                $query->where('contacts.full_name', 'LIKE', "%{$search}%");
-                $query->orWhere('amount_payments.type', 'LIKE', "%{$search}%");
-            }
-            $data = $query->orderBy('amount_payments.amount_payments_id','DESC')
+            ->where('amount_payments.contact_id',$id)->orderBy('amount_payments.amount_payments_id','DESC')
             ->get();
           
-           return BlancePayResource::collection($data);
+           return BlancePayResource::collection($query);
     }
 
     /**
