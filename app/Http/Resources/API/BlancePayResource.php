@@ -15,14 +15,15 @@ class BlancePayResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'=>$this->amount_payments_id,
-            'contact_id'=>$this->contact_id,
+            'id'=>$this->contact_id,
+            'contact_id'=>$this->amount_payments_id,
             'full_name'=>$this->full_name,
             'phone'=>$this->phone,
             'amount'=>$this->amount,
             'bank_name'=>$this->bank_name,
             'checque_no'=>$this->checque_no,
             'type'=>$this->type==1?'Receive':'Payment',
+            'manual_at'=>$this->manual_at,
         ];
     }
 }

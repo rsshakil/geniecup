@@ -36,6 +36,7 @@ import myblance_index from './components/backend/customerdues/Index.vue'
 
 import payments_add from './components/backend/payments/Create.vue'
 import payments_index from './components/backend/payments/Index.vue'
+import payments_by from './components/backend/payments/PaymentBy.vue'
 
 // import login_body from './components/login/login_body.vue'
 
@@ -86,6 +87,6 @@ export const routes = [
     
     { path: '/payments', name: 'payments-list', component: payments_index},
     { path: '/payments/create', name: 'add-payments', component: payments_add },
-    { path: '/payments/:id', name: 'edit-payments', component: payments_add },
+    { path: '/payments/:id', name: 'edit-payments', component: payments_by },
 
 ];

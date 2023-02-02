@@ -43,6 +43,7 @@ class BlancePayController extends Controller
             'amount_payments_id',
             'phone',
             'mobile',
+            'manual_at',
             'full_name'
         )
         ->join('contacts','amount_payments.contact_id','contacts.contact_id')
@@ -126,7 +127,31 @@ class BlancePayController extends Controller
      */
     public function show($id)
     {
-        //
+        $query =AmountPayment::select(
+                'amount',
+                'amount_payments_id',
+                'amount_payments.contact_id',
+                'bank_name',
+                'checque_no',
+                'amount_payments.type',
+                'amount_payments_id',
+                'phone',
+                'mobile',
+                'manual_at',
+                'full_name'
+            )
+            ->join('contacts','amount_payments.contact_id','contacts.contact_id')
+            ->where('amount_payments.client_id',$request->client_id)
+            ->where('amount_payments.contact_id',$id);
+            $search = $request->search;
+            if($search != 'false'){
+                $query->where('contacts.full_name', 'LIKE', "%{$search}%");
+                $query->orWhere('amount_payments.type', 'LIKE', "%{$search}%");
+            }
+            $data = $query->orderBy('amount_payments.amount_payments_id','DESC')
+            ->get();
+          
+           return BlancePayResource::collection($data);
     }
 
     /**
