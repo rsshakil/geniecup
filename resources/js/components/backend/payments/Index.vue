@@ -12,7 +12,7 @@ export default {
         this.cardTitle ="Payment/Receive"
     
         this.isAddItem = true;
-        this.isEditBtn = false;
+        this.isEditBtn = true;
         this.isDelBtn = false;
         this.columnsHead.push('Sn','Name','Phone','Amount', 'Bank name','Checque no','Type','Action')
         this.columnsBody.push('full_name','phone','amount','bank_name','checque_no','type')  

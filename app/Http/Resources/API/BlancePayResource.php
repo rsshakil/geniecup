@@ -16,6 +16,7 @@ class BlancePayResource extends JsonResource
     {
         return [
             'id'=>$this->amount_payments_id,
+            'contact_id'=>$this->contact_id,
             'full_name'=>$this->full_name,
             'phone'=>$this->phone,
             'amount'=>$this->amount,

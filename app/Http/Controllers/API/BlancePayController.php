@@ -34,8 +34,9 @@ class BlancePayController extends Controller
         $dataSorting = $request->sorting == 'false'?10:$request->sorting;
 
       $query =AmountPayment::select(
-            'amount',
+        DB::raw('SUM(amount) as amount'),
             'amount_payments_id',
+            'amount_payments.contact_id',
             'bank_name',
             'checque_no',
             'amount_payments.type',
@@ -51,7 +52,8 @@ class BlancePayController extends Controller
             $query->where('contacts.full_name', 'LIKE', "%{$search}%");
             $query->orWhere('amount_payments.type', 'LIKE', "%{$search}%");
         }
-
+        $query = $query->groupBy('amount_payments.contact_id');
+        $query = $query->groupBy('amount_payments.type');
         $data = $query->orderBy('amount_payments.amount_payments_id','DESC')
         ->paginate($dataSorting);
       
