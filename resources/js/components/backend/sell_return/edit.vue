@@ -14,7 +14,7 @@
         <div class="row" id="printArea" v-can="['Admin_view']">
         <div class="col-12 text-center">
            <h2 style="text-align:center">{{clientInfo.first_name}}</h2>
-                        <Address style="text-align:center;margin-bottom: 0;">Address: {{clientInfo.last_name}}</Address>
+                        <Address style="text-align:center;margin-bottom: 0;padding-left:250px;padding-right:250px"> {{clientInfo.last_name}}</Address>
                         <Address style="text-align:center;margin-bottom: 0;">Phone: {{clientInfo.phone}}</Address>
                         </div>
                     <div class="col-md-6 col-lg-6">
@@ -61,6 +61,10 @@
                     <td colspan="5" style="text-align: right;">Total Quantity</td>
                     <td style="text-align: right;">{{totalQuantity}}</td>
                     <td style="text-align: right;">৳{{totalPrice}}</td>
+                </tr>
+                <tr>
+                    <td colspan="6" style="text-align: right;">Total Discount amount</td>
+                    <td style="text-align: right;">৳{{product_list_arr[0].total_discount_amount}}</td>
                 </tr>
                 <tr>
                     <td colspan="6" style="text-align: right;">Total Paid amount</td>

@@ -65,6 +65,12 @@
                     <td></td>
                 </tr>
                  <tr>
+                    <td colspan="6" style="text-align: right;">Total DisCount Amount</td>
+                    <td><input type="number" @change="updatePaidAmount" class="form-controll" v-model="inputData.total_discount_amount" placeholder="Discount Amount"></td>
+                    
+                    <td></td>
+                </tr>
+                 <tr>
                     <td colspan="6" style="text-align: right;">Total Paid Amount</td>
                     <td><input type="number" @change="updatePaidAmount" class="form-controll" v-model="inputData.total_paid_amount" placeholder="Paid Amount"></td>
                     
@@ -72,7 +78,7 @@
                 </tr>
                  <tr>
                                         <td colspan="6" style="text-align: right;">Total Due Amount</td>
-                    <td>{{totalPrice-inputData.total_paid_amount}}</td>
+                    <td>{{totalPrice-inputData.total_paid_amount-inputData.total_discount_amount}}</td>
                     <td></td>
                 </tr>
                 </tbody>
@@ -99,6 +105,7 @@ export default {
         user_id:'',
         total_paid_amount:0,
         total_due_amount:0,
+        total_discount_amount:0,
         client_id:'',
         contact_id: '',
         product_id:'',
@@ -120,7 +127,7 @@ updatePaidAmount(){
     this.toastMessage('error', 'You can not enter Over Price');
     this.inputData.total_paid_amount=0;
   }else{
-    this.inputData.total_due_amount=this.totalPrice-this.inputData.total_paid_amount;
+    this.inputData.total_due_amount=this.totalPrice-this.inputData.total_paid_amount-this.inputData.total_discount_amount;
   }
 },
 addStock(){
@@ -129,6 +136,7 @@ addStock(){
         contact_id: this.inputData.contact_id.contact_id,
         total_paid_amount: this.inputData.total_paid_amount,
         total_due_amount: this.inputData.total_due_amount,
+        total_discount_amount: this.inputData.total_discount_amount,
         total_amount: this.totalPrice,
         total_quantity: this.totalQuantity,
         product_items: this.product_list_arr,
