@@ -31,7 +31,7 @@ class BlancePayController extends Controller
      */
     public function index(Request $request)
     {
-        $dataSorting = $request->sorting == 'false'?10:$request->sorting;
+        $dataSorting = $request->sorting == 'false'?100:$request->sorting;
 
       $query =AmountPayment::select(
         DB::raw('SUM(amount) as amount'),
@@ -125,8 +125,10 @@ class BlancePayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
+        $dataSorting = $request->sorting == 'false'?100:$request->sorting;
+
         $query =AmountPayment::select(
                 'amount',
                 'amount_payments_id',
@@ -141,10 +143,17 @@ class BlancePayController extends Controller
                 'full_name'
             )
             ->join('contacts','amount_payments.contact_id','contacts.contact_id')
-            ->where('amount_payments.contact_id',$id)->orderBy('amount_payments.amount_payments_id','DESC')
-            ->get();
-          
-           return BlancePayResource::collection($query);
+            ->where('amount_payments.client_id',$request->client_id)
+            ->where('amount_payments.contact_id',$request->contact_id);
+            $search = $request->search;
+            if($search != 'false'){
+                $query->where('contacts.full_name', 'LIKE', "%{$search}%");
+                $query->orWhere('amount_payments.type', 'LIKE', "%{$search}%");
+            }
+            $data = $query->orderBy('amount_payments.amount_payments_id','DESC')
+            ->paginate($dataSorting);
+        
+        return BlancePayResource::collection($data);
     }
 
     /**

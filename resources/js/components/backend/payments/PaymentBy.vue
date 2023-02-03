@@ -8,8 +8,9 @@ export default {
     mixins:[mixin],
 
     created(){
-        this.generalApi = "payments/"+this.$route.params.id
-        this.inputData.client_id = Globals.user_info_client_id
+        this.generalApi = "payments/"+this.$route.params.id;
+        this.inputData.client_id = Globals.user_info_client_id;
+        this.inputData.contact_id = this.$route.params.id;
         this.cardTitle ="Payment/Receive"
     
         this.isAddItem = true;
