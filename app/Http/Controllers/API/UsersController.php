@@ -115,30 +115,30 @@ class UsersController extends Controller
         // return $request->all();
         $user_id=$request->user_id;
         $auth_id=$request->auth_id;
-        if (!(Validator::make($request->all(), ['f_name' => 'max:20'])->passes())) {
-            return response()->json(['title'=>"Error!",'message' =>'fname_required', 'class_name' => 'error']);
-        }
-        if (!(Validator::make($request->all(), ['l_name' => 'max:20'])->passes())) {
-            return response()->json(['title'=>"Error!",'message' =>'lname_required', 'class_name' => 'error']);
-        }
-        if (!(Validator::make($request->all(), ['name' => 'max:50'])->passes())) {
-            return response()->json(['title'=>"Error!",'message' =>'full_name_required', 'class_name' => 'error']);
-        }
-        if (!(Validator::make($request->all(), ['email' => 'required|min:6|email'])->passes())) {
-            return response()->json(['title'=>"Error!",'message' =>'email_required', 'class_name' => 'error']);
-        }
-        if (!(Validator::make($request->all(), ['phone' => 'max:50'])->passes())) {
-            return response()->json(['title'=>"Error!",'message' =>'phone_required', 'class_name' => 'error']);
-        }
-        if (!(Validator::make($request->all(), ['dob' => 'date'])->passes())) {
-            return response()->json(['title'=>"Error!",'message' =>'dob_required', 'class_name' => 'error']);
-        }
+        // if (!(Validator::make($request->all(), ['f_name' => 'max:20'])->passes())) {
+        //     return response()->json(['title'=>"Error!",'message' =>'fname_required', 'class_name' => 'error']);
+        // }
+        // if (!(Validator::make($request->all(), ['l_name' => 'max:20'])->passes())) {
+        //     return response()->json(['title'=>"Error!",'message' =>'lname_required', 'class_name' => 'error']);
+        // }
+        // if (!(Validator::make($request->all(), ['name' => 'max:50'])->passes())) {
+        //     return response()->json(['title'=>"Error!",'message' =>'full_name_required', 'class_name' => 'error']);
+        // }
+        // if (!(Validator::make($request->all(), ['email' => 'required|min:6|email'])->passes())) {
+        //     return response()->json(['title'=>"Error!",'message' =>'email_required', 'class_name' => 'error']);
+        // }
+        // if (!(Validator::make($request->all(), ['phone' => 'max:50'])->passes())) {
+        //     return response()->json(['title'=>"Error!",'message' =>'phone_required', 'class_name' => 'error']);
+        // }
+        // if (!(Validator::make($request->all(), ['dob' => 'date'])->passes())) {
+        //     return response()->json(['title'=>"Error!",'message' =>'dob_required', 'class_name' => 'error']);
+        // }
         // if (!(Validator::make($request->all(), ['image_url' => 'image|mimes:jpeg,png,jpg,gif,svg|max:1024'])->passes())) {
         //     return response()->json(['title'=>"Error!",'message' =>__('messages.select_image'), 'class_name' => 'error']);
         // }
-        if (!(Validator::make($request->all(), ['zip' => 'max:20'])->passes())) {
-            return response()->json(['title'=>"Error!",'message' =>'postal_required', 'class_name' => 'error']);
-        }
+        // if (!(Validator::make($request->all(), ['zip' => 'max:20'])->passes())) {
+        //     return response()->json(['title'=>"Error!",'message' =>'postal_required', 'class_name' => 'error']);
+        // }
         if ($user_id != $auth_id) {
             $authUser=User::find($auth_id);
             if (!($authUser->hasPermissionTo('user_update'))) {
