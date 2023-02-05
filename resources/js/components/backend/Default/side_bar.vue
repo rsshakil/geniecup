@@ -5,11 +5,11 @@
     <div class="main-navbar">
       <nav class="navbar navbar-light bg-white flex-md-nowrap border-bottom p-0">
         <router-link to="/home" class="nav-link" style="line-height: 25px;margin:0 auto;">
-            <img v-if="user_data.image!=null && user_data.image!=''"
+            <img
               id="main-logo"
               class="d-inline-block align-top mr-1"
               style="width: 56px"
-              :src="BASE_URL + '/public/backend/images/logo/'+user_data.image"
+              v-if="user_data.user" :src="imageSrc(user_data.user.image)"
               alt="inventory"
             />
          
@@ -250,6 +250,7 @@ export default {
   },
   created(){
     this.user_data=this.app._data;
+    console.log('this.user_data',this.user_data);
 }
 };
 </script>
