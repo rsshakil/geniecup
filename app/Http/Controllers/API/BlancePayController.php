@@ -127,7 +127,6 @@ class BlancePayController extends Controller
      */
     public function show($id,Request $request)
     {
-        echo $id;exit;
         $dataSorting = $request->sorting == 'false'?100:$request->sorting;
 
         $query =AmountPayment::select(
@@ -145,7 +144,7 @@ class BlancePayController extends Controller
             )
             ->join('contacts','amount_payments.contact_id','contacts.contact_id')
             ->where('amount_payments.client_id',$request->client_id)
-            ->where('amount_payments.contact_id',$request->contact_id);
+            ->where('amount_payments.contact_id',$id);
             $search = $request->search;
             if($search != 'false'){
                 $query->where('contacts.full_name', 'LIKE', "%{$search}%");
