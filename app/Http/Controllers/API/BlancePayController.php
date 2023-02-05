@@ -125,8 +125,9 @@ class BlancePayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id,Request $request)
     {
+        echo $id;exit;
         $dataSorting = $request->sorting == 'false'?100:$request->sorting;
 
         $query =AmountPayment::select(
