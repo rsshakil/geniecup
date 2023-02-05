@@ -187,7 +187,7 @@ printDiv(){
       this.backUrl = '/sell'
     console.log(this.$route.params.id);
     this.getDetails(this.$route.params.id);
-console.log('globaaal',Globals);
+console.log('globaaal',this.user);
   },
   computed: {
 
