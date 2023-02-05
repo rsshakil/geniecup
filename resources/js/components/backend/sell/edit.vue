@@ -12,11 +12,26 @@
     <!-- Default Light Table -->
     
         <div class="row" id="printArea" v-can="['Admin_view']">
-        <div class="col-12 text-center">
-           <h2 style="text-align:center">{{clientInfo.first_name}}</h2>
-                        <Address style="text-align:center;margin-bottom: 0;padding-left:250px;padding-right:250px">{{clientInfo.last_name}}</Address>
-                        <Address style="text-align:center;margin-bottom: 0;">Phone: {{clientInfo.phone}}</Address>
-                        </div>
+        <div class="col-12 ">
+          <div class="row">
+            <div class="col-md-3">
+            <img
+              id="main-logo"
+              class="d-inline-block align-top mr-1"
+              style="width: 56px"
+              v-if="user_data.user" :src="imageSrc(user_data.user.image)"
+              alt="inventory"
+            />
+            </div>
+            <div class="col-md-6 text-center">
+              <h2 style="text-align:center">{{clientInfo.first_name}}</h2>
+              <Address style="text-align:center;margin-bottom: 0;">{{clientInfo.last_name}}</Address>
+              <Address style="text-align:center;margin-bottom: 0;">Phone: {{clientInfo.phone}}</Address>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+            
+        </div>
                     <div class="col-md-6 col-lg-6">
                       <p style="text-align:left;margin-bottom: 0;">Name: {{product_list_arr[0].full_name}}</p>
                       <Address style="text-align:left;margin-bottom: 0;">Address: {{product_list_arr[0].address1}}</Address>
@@ -25,9 +40,15 @@
                     <div class="col-md-6 col-lg-6" style="text-align: right;float:right;">
                         <Address style="text-align:right;margin-bottom: 0;">Invoice No: {{product_list_arr[0].invoice_no}}</Address>
                         <Address style="text-align:right;margin-bottom: 0;">Invoice Date: {{new Date(product_list_arr[0].created_at).toLocaleDateString()}}</Address>
+                        <Address style="text-align:right;margin-bottom: 0;">Sell Date: {{new Date(product_list_arr[0]?.manual_at).toLocaleDateString()}}</Address>
                     </div>
                <div class="clear-both"></div>
                <div class="col-md-12">
+               <img
+              class="d-inline-block align-top mr-1"
+              style="position:absulate;margin:0 auto;opacity:0.5"
+              v-if="user_data.user" :src="imageSrc(user_data.user.image)"
+            />
            <table class="table table-striped table-bordered">
                 <thead>
                 <tr>
@@ -98,9 +119,11 @@ import { Printd } from 'printd';
 
 export default {
      mixins:[mixin],
+    props:['app'],
   data() {
     return {
       clientInfo:{},
+      user_data:null,
       inputData:{
         user_id:'',
         client_id:'',
@@ -162,7 +185,7 @@ printDiv(){
   created() {
       this.generalApi = 'sell'
       this.backUrl = '/sell'
-
+      this.user_data=this.app._data;
     console.log(this.$route.params.id);
     this.getDetails(this.$route.params.id);
 
