@@ -187,7 +187,9 @@ printDiv(){
       this.backUrl = '/sell'
     console.log(this.$route.params.id);
     this.getDetails(this.$route.params.id);
-console.log('globaaal',this.user);
+console.log('globaaal11',this.user);
+console.log('globaaal11',this.user_data);
+console.log('globaaal222',Globals);
   },
   computed: {
 
@@ -204,7 +206,7 @@ console.log('globaaal',this.user);
 
   },
   mounted() {
-    console.log("product page loaded sell",this.user_data);
+    console.log("product page loaded sell");
   }
 };
 </script>
