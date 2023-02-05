@@ -19,7 +19,7 @@
               id="main-logo"
               class="d-inline-block align-top mr-1"
               style="width: 56px"
-              v-if="user_data.user" :src="imageSrc(user_data.user.image)"
+              v-if="user_data?.user" :src="imageSrc(user_data?.user?.image)"
               alt="inventory"
             />
             </div>
@@ -47,7 +47,7 @@
                <img
               class="d-inline-block align-top mr-1"
               style="position:absulate;margin:0 auto;opacity:0.5"
-              v-if="user_data.user" :src="imageSrc(user_data.user.image)"
+              v-if="user_data?.user" :src="imageSrc(user_data?.user?.image)"
             />
            <table class="table table-striped table-bordered">
                 <thead>
@@ -187,7 +187,7 @@ printDiv(){
       this.backUrl = '/sell'
     console.log(this.$route.params.id);
     this.getDetails(this.$route.params.id);
-
+console.log('globaaal',Globals);
   },
   computed: {
 
@@ -204,7 +204,7 @@ printDiv(){
 
   },
   mounted() {
-    console.log("product page loaded");
+    console.log("product page loaded sell",this.user_data);
   }
 };
 </script>
