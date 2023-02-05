@@ -185,7 +185,6 @@ printDiv(){
   created() {
       this.generalApi = 'sell'
       this.backUrl = '/sell'
-      this.user_data=this.app._data;
     console.log(this.$route.params.id);
     this.getDetails(this.$route.params.id);
 
