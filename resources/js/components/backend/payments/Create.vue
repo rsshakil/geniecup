@@ -58,7 +58,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="">Date</label>
-                                        <input type="date" class="form-controll" @input="changeDateformat" placeholder="Date" v-model="inputData.manual_at">
+                                        <!-- <input type="date" class="form-controll" @change="changeDateformat" placeholder="Date"> -->
+                                        <datetime format="YYYY-MM-DD" width="100%" v-model="inputData.manual_at"></datetime>
                                     </div>
                                 </div><!--col-6 end-->
 
@@ -77,9 +78,10 @@
 
 <script>
     import mixin from '../Mixin/mixin';
-
+    import datetime from 'vuejs-datetimepicker';
     export default {
         mixins: [mixin],
+        components: { datetime },
         data(){
             return {
                smList:[],
@@ -110,6 +112,7 @@
                 if(date!=''){
                     let d = date.split("/");
                     let ddd = d[2]+'-'+d[1]+'-'+d[0];
+                    console.log('ddd',ddd);
                     this.inputData.manual_at = ddd;
                 }
                 },
