@@ -21,7 +21,7 @@
                         </multiselect>
                     </div>
                     <div class="col-md-4 col-lg-4">
-                    <input type="date" class="form-controll" @input="changeDateformat" placeholder="Date" v-model="inputData.manual_at">
+                    <datetime format="YYYY-MM-DD" width="100%" v-model="inputData.manual_at"></datetime>
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <multiselect v-model="inputData.product_id" :options="product_list_arr_select"
@@ -117,8 +117,12 @@
 </template>
 <script>
 import mixin from '../Mixin/mixin';
+import datetime from 'vuejs-datetimepicker';
+       
+
 export default {
-     mixins:[mixin],
+  mixins:[mixin],
+  components: { datetime },
   data() {
     return {
      

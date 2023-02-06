@@ -251,6 +251,12 @@ export default {
   created(){
     this.user_data=this.app._data;
     console.log('this.user_data',this.user_data);
+    let userInfo = sessionStorage.getItem('userInfo_'+Globals.user_info_client_id);
+    if(userInfo){
+      console.log('userInfo',userInfo);
+    }else{
+      sessionStorage.setItem('userInfo_'+Globals.user_info_client_id,JSON.stringify(this.user_data))
+    }
 }
 };
 </script>

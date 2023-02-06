@@ -190,6 +190,8 @@ printDiv(){
 console.log('globaaal11',this.user);
 console.log('globaaal11',this.user_data);
 console.log('globaaal222',Globals);
+this.user_data = sessionStorage.getItem('userInfo_'+Globals.user_info_client_id);
+
   },
   computed: {
 
