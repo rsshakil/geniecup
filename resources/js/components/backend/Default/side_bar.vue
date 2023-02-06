@@ -255,7 +255,7 @@ export default {
     if(userInfo){
       console.log('userInfo',userInfo);
     }else{
-      sessionStorage.setItem('userInfo_'+Globals.user_info_client_id,JSON.stringify(this.user_data))
+      sessionStorage.setItem('userInfo_'+Globals.user_info_client_id,JSON.stringify(this.user_data.user))
     }
 }
 };
