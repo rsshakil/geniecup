@@ -51,7 +51,7 @@
                <img
               class="d-inline-block align-top mr-1"
               style="position:absulate;margin:0 auto;opacity:0.5"
-              v-if="Globals?.user_info_image" :src="imageSrc(Globals?.user_info_image)"
+              v-if="user_image" :src="imageSrc(user_image)"
             />
            <table class="table table-striped table-bordered">
                 <thead>
@@ -128,6 +128,7 @@ export default {
     return {
       clientInfo:{},
       user_data:null,
+      user_image:null,
       inputData:{
         user_id:'',
         client_id:'',
@@ -191,11 +192,12 @@ printDiv(){
       this.backUrl = '/sell'
     console.log(this.$route.params.id);
     this.getDetails(this.$route.params.id);
+    this.user_image = this.BASE_URL+'storage/app/public/backend/images/users/'+Globals?.user_info_image;
 console.log('globaaal11',this.user);
 console.log('globaaal11',this.user_data);
 console.log('globaaal222',Globals);
 console.log('globaaal222',Globals?.user_info_image);
-console.log('globaaal222',this.BASE_URL+'/'+Globals?.user_info_image);
+console.log('globaaal222',this.user_image);
 
   },
   computed: {
