@@ -50,7 +50,7 @@
                <div class="col-md-12">
                <img
               class="d-inline-block align-top"
-              style="position:absulate;margin:0 auto;opacity:0.10;left:0;right:0"
+              style="position:absolute;margin:0 auto;opacity:0.10;left:0;right:0"
               v-if="user_image" :src="imageSrc(user_image)"
             />
            <table class="table table-striped table-bordered">
