@@ -13,7 +13,11 @@
     
         <div class="row" id="printArea" v-can="['Admin_view']">
         <div class="col-12 text-center">
-           <h2 style="text-align:center">{{clientInfo.first_name}}</h2>
+           <h2 style="text-align:center;color: red;
+    font-family: fantasy;
+    font-weight: 800;
+    letter-spacing: 10px;
+    line-height: 36px;">{{clientInfo.first_name}}</h2>
                         <Address style="text-align:center;margin-bottom: 0;padding-left:250px;padding-right:250px"> {{clientInfo.last_name}}</Address>
                         <Address style="text-align:center;margin-bottom: 0;">Phone: {{clientInfo.phone}}</Address>
                         </div>

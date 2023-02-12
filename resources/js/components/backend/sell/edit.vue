@@ -24,7 +24,11 @@
             />
             </div>
             <div class="col-md-6 text-center">
-              <h2 style="text-align:center">{{clientInfo.first_name}}</h2>
+              <h2 style="text-align:center;color: red;
+    font-family: fantasy;
+    font-weight: 800;
+    letter-spacing: 10px;
+    line-height: 36px;">{{clientInfo.first_name}}</h2>
               <Address style="text-align:center;margin-bottom: 0;">{{clientInfo.last_name}}</Address>
               <Address style="text-align:center;margin-bottom: 0;">Phone: {{clientInfo.phone}}</Address>
             </div>
@@ -47,7 +51,7 @@
                <img
               class="d-inline-block align-top mr-1"
               style="position:absulate;margin:0 auto;opacity:0.5"
-              v-if="user_data?.user" :src="imageSrc(user_data?.user?.image)"
+              v-if="Globals?.user_info_image" :src="imageSrc(Globals?.user_info_image)"
             />
            <table class="table table-striped table-bordered">
                 <thead>
@@ -190,7 +194,8 @@ printDiv(){
 console.log('globaaal11',this.user);
 console.log('globaaal11',this.user_data);
 console.log('globaaal222',Globals);
-this.user_data = sessionStorage.getItem('userInfo_'+Globals.user_info_client_id);
+console.log('globaaal222',Globals?.user_info_image);
+console.log('globaaal222',this.BASE_URL+'/'+Globals?.user_info_image);
 
   },
   computed: {

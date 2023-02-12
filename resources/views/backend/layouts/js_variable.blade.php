@@ -14,6 +14,7 @@ echo json_encode(array(
     'base_url' =>\Config::get('app.url'),
     'user_info_id' =>@\Auth::user()->id,
     'user_info_client_id' =>@\Auth::user()->id,
+    'user_info_image' =>@\Auth::user()->image,
     'welcome_text' =>__('messages.welcome'),
     'role_management' =>__('messages.role_management'),
     'permission_management' =>__('messages.permission_management'),
