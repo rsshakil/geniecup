@@ -109,7 +109,7 @@ L 292,40" style=""></path></svg><!--bindings={
                     <div class="col-12">Total Purchase Info</div>
                     <div class="clearfix"></div>
                     <div class="col-3">
-                        <div class="infoDiv text-center shadow p-3 mb-5 bg-body bg-primay rounded">
+                        <div class="infoDiv text-center shadow p-3 mb-5 bg-body bg-primary rounded">
                         <h6 class="text-white">Total Purchase Quantity</h6>
                         <h4 class="text-white">{{stock_report_arr['total_buy_info'].sum_of_total_quantity}}</h4>
                         </div>
@@ -186,30 +186,30 @@ L 292,40" style=""></path></svg><!--bindings={
                     <div class="col-12">Total Purchase Info</div>
                     <div class="clearfix"></div>
                     <div class="col-3">
-                        <div class="infoDiv text-center shadow p-3 mb-5 bg-body rounded">
-                        <h6>Total Purchase Quantity</h6>
-                        <h4>{{stock_report_filter_arr['total_buy_info'].sum_of_total_quantity}}</h4>
+                        <div class="infoDiv text-center shadow p-3 mb-5 bg-body bg-primary rounded">
+                        <h6 class="text-white">Total Purchase Quantity</h6>
+                        <h4 class="text-white">{{stock_report_filter_arr['total_buy_info'].sum_of_total_quantity}}</h4>
                         </div>
                     </div>
                     <div class="col-3">
-                        <div class="infoDiv text-center shadow p-3 mb-5 bg-body rounded">
+                        <div class="infoDiv text-center shadow p-3 mb-5 bg-body bg-info rounded">
 
-                        <h6>Total Purchase Amount</h6>
-                        <h4>{{stock_report_filter_arr['total_buy_info'].sum_of_total_amount}}</h4>
+                        <h6 class="text-white">Total Purchase Amount</h6>
+                        <h4 class="text-white">{{stock_report_filter_arr['total_buy_info'].sum_of_total_amount}}</h4>
                     </div>
                     </div>
                     <div class="col-3">
-                        <div class="infoDiv text-center shadow p-3 mb-5 bg-body rounded">
+                        <div class="infoDiv text-center shadow p-3 mb-5 bg-body bg-success rounded">
 
-                        <h6>Total Purchase Paid Amount</h6>
-                        <h4>{{stock_report_filter_arr['total_buy_info'].sum_of_total_paid_amount}}</h4>
+                        <h6 class="text-white">Total Purchase Paid Amount</h6>
+                        <h4 class="text-white">{{stock_report_filter_arr['total_buy_info'].sum_of_total_paid_amount}}</h4>
                     </div>
                     </div>
                     <div class="col-3">
-                        <div class="infoDiv text-center shadow p-3 mb-5 bg-body rounded">
+                        <div class="infoDiv text-center shadow p-3 mb-5 bg-body bg-danger rounded">
 
-                        <h6>Total Purchase Due Amount</h6>
-                        <h4>{{stock_report_filter_arr['total_buy_info'].sum_of_total_due_amount}}</h4>
+                        <h6 class="text-white">Total Purchase Due Amount</h6>
+                        <h4 class="text-white">{{stock_report_filter_arr['total_buy_info'].sum_of_total_due_amount}}</h4>
                     </div>
                     </div>
                     
