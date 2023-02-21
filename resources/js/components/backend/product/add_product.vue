@@ -426,7 +426,10 @@
             };
         },
         methods: {
-
+            addSupplier(){
+      console.log('add a new sup');
+      this.userModalShow=true;
+    },
             save_category() {
       
       axios.post(this.BASE_URL+"api/pcategory",this.catData)
@@ -870,10 +873,7 @@ validations: {
         // selected_manufacture_id: { required },
         // selected_brand_id: { required },
     },
-    addSupplier(){
-      console.log('add a new sup');
-      this.userModalShow=true;
-    },
+   
   },
         created() {
             console.log(this.$route.params.product_type);
