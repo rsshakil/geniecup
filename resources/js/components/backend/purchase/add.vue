@@ -314,6 +314,7 @@ removeproductattr: function (index) {
       axios.post(this.BASE_URL+"api/customerdues",this.customerData)
         .then(({ data }) => {
           this.userModalShow=false;
+          this.generalSettings();
         })
         .catch(() => {
           console.log("Error...");
