@@ -112,7 +112,7 @@
                         </multiselect>
                     </div>
                     <div class="col-md-1">
-                        <button class="btn btn-info" @click="addSupplier"> <b-icon icon="plus-square-fill" font-scale="2.2"></b-icon></button>
+                        <button class="btn btn-info" @click="addSupplier()"> <b-icon icon="plus-square-fill" font-scale="2.2"></b-icon></button>
                     </div>
                 </div>
                 <!-- 
