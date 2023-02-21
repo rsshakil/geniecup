@@ -21,7 +21,7 @@
                         </multiselect>
                     </div>
                     <div class="col-md-1 col-lg-1">
-                      <button class="btn btn-info" @click="addSupplier()">Add a supplier</button>
+                      <button class="btn btn-info" @click="addSupplier()">Add Supplier</button>
                     </div>
                     <div class="col-md-3 col-lg-3">
                     <datetime format="YYYY-MM-DD" width="100%" v-model="inputData.manual_at"></datetime>
@@ -114,7 +114,7 @@
           </div>
         </div>
 
-        <b-modal id="modal-lg" size="lg" :hide-backdrop="true" title="Create User" ok-title="Save" @ok.prevent="save_user()" v-model="userModalShow">
+        <b-modal id="modal-lg" size="lg" :hide-backdrop="true" title="Create Supplier" ok-title="Save" @ok.prevent="save_user()" v-model="userModalShow">
         <form method="POST" id="user_create">
           <div class="row">
                                 <div class="col-md-6">

@@ -20,7 +20,10 @@
                             open-direction="bottom" placeholder="Pick a Customer/Party">
                         </multiselect>
                     </div>
-                    <div class="col-md-4 col-lg-4">
+                    <div class="col-md-1 col-lg-1">
+                      <button class="btn btn-info" @click="addSupplier()">Add Customer</button>
+                    </div>
+                    <div class="col-md-3 col-lg-3">
                     <datetime format="YYYY-MM-DD" width="100%" v-model="inputData.manual_at"></datetime>
                     </div>
                     <div class="col-md-4 col-lg-4">
@@ -112,6 +115,40 @@
         </div>
 
 
+        <b-modal id="modal-lg" size="lg" :hide-backdrop="true" title="Create Customer" ok-title="Save" @ok.prevent="save_user()" v-model="userModalShow">
+        <form method="POST" id="user_create">
+          <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Name</label>
+                                        <input type="hidden" name="client_id" v-model="customerData.client_id"/>
+                                        <input type="text" name="full_name" class="form-control" v-model="customerData.full_name" placeholder="Name">
+                                    </div>
+                                </div><!--col-6 end-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Phone Number</label>
+                                        <input type="text" name="phone" class="form-control" v-model="customerData.phone" placeholder="Phone number">
+                                        <input type="hidden" name="mobile" class="form-control" v-model="customerData.phone" placeholder="Phone number">
+                                    </div>
+                                </div><!--col-6 end-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Email</label>
+                                        <input type="text" name="email" class="form-control" v-model="customerData.email" placeholder="Email">
+                                    </div>
+                                </div><!--col-6 end-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Address</label>
+                                        <input type="text" name="address1" class="form-control" v-model="customerData.address1" placeholder="Addresss">
+                                    </div>
+                                </div><!--col-6 end-->
+
+                            </div>
+                </form>
+    </b-modal>
+
     </div>
 </template>
 <script>
@@ -123,7 +160,14 @@ export default {
       components: { datetime },
   data() {
     return {
-     
+      userModalShow:false,
+      customerData:{
+        client_id:Globals.user_info_client_id,
+        full_name:'',
+        phone:'',
+        email:'',
+        address1:''
+      },
       inputData:{
         user_id:'',
         total_paid_amount:0,
@@ -145,6 +189,10 @@ export default {
     };
   },
   methods: {
+    addSupplier(){
+      console.log('add a new sup');
+      this.userModalShow=true;
+    },
 updatePaidAmount(){
   
   if(this.inputData.total_paid_amount>this.totalPrice){
@@ -262,11 +310,25 @@ removeproductattr: function (index) {
         });
     },
     
+
+    save_user() {
+      
+      axios.post(this.BASE_URL+"api/customerdues",this.customerData)
+        .then(({ data }) => {
+          this.userModalShow=false;
+          this.generalSettings();
+        })
+        .catch(() => {
+          console.log("Error...");
+        });
+    },
     
   },
 
   created() {
     this.loadProductDataselect_2();
+    this.inputData.client_id=Globals.user_info_client_id,
+    this.customerData.client_id=Globals.user_info_client_id,
     console.log('url');
     console.log(this.$route);
      this.generalApi = 'sell'
