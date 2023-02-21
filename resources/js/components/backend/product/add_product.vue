@@ -104,12 +104,15 @@
 
                 <div class="row form-group">
                     <label for="name" class="col-md-4 col-form-label">Category</label>
-                    <div class="col-md-8">
+                    <div class="col-md-7">
                         <multiselect v-model="inputData.selected_product_categorie_id" :options="category_list"
                             label="category_name" track-by="product_categorie_id" :searchable="true" :multiple="false"
                             :close-on-select="true" :clear-on-select="false" :preserve-search="true" :class="{ 'hasError': $v.inputData.selected_product_categorie_id.$error }"
                             open-direction="bottom" @input="showsubcatlist($event)" placeholder="Pick a Categry">
                         </multiselect>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-info" @click="addSupplier"> <b-icon icon="plus-square-fill" font-scale="2.2"></b-icon></button>
                     </div>
                 </div>
                 <!-- 
@@ -290,6 +293,25 @@
           <button @click="productAddUpdate" class="btn btn-success submitProduct">Submit</button>
         </div>
 
+        <b-modal id="modal-lg" size="lg" :hide-backdrop="true" title="Create Supplier" ok-title="Save" @ok.prevent="save_category()" v-model="userModalShow">
+        <form method="POST" id="user_create">
+            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Category Name</label>
+                                        <input type="text" name="cat_name" class="form-control" v-model="catData.cat_name" placeholder="Category Name">
+                                    </div>
+                                </div><!--col-6 end-->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="">Sub Category Name</label>
+                                        <input type="text" name="sub_cat_name" class="form-control" v-model="catData.sub_cat_name" placeholder="Sub Category Name">
+                                    </div>
+                                </div><!--col-6 end-->
+
+                            </div>  
+        </form>
+    </b-modal>
 
     </div>
 </template>
@@ -300,6 +322,12 @@
 
         data() {
             return {
+                userModalShow:false,
+                catData:{
+                    client_id:Globals.user_info_client_id,
+                    cat_name:'',
+                    sub_cat_name:'',
+                },
                 inputData:{
                     user_id:'',
                     client_id:'',
@@ -399,6 +427,17 @@
         },
         methods: {
 
+            save_category() {
+      
+      axios.post(this.BASE_URL+"api/pcategory",this.catData)
+        .then(({ data }) => {
+          this.userModalShow=false;
+          this.loadProductCategoryData();
+        })
+        .catch(() => {
+          console.log("Error...");
+        });
+    },
             handleItemCodeInput(){
                 if(this.inputData.selected_item_type=='0'){
                     this.inputData.product_name = this.inputData.singleitem.item_code;
@@ -830,7 +869,11 @@ validations: {
         // contact_id: { required },
         // selected_manufacture_id: { required },
         // selected_brand_id: { required },
-    }
+    },
+    addSupplier(){
+      console.log('add a new sup');
+      this.userModalShow=true;
+    },
   },
         created() {
             console.log(this.$route.params.product_type);
