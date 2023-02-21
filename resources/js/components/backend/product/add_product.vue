@@ -100,18 +100,7 @@
                     </div>
                 </div>
 
-
-                <div class="row form-group">
-                    <label for="name" class="col-md-4 col-form-label">Supplier</label>
-                    <div class="col-md-8">
-                        <multiselect v-model="inputData.contact_id" :options="contact_list"
-                            label="full_name" track-by="contact_id" :searchable="true" :multiple="false"
-                            :close-on-select="true" :clear-on-select="false" :preserve-search="true" :class="{ 'hasError': $v.inputData.contact_id.$error }"
-                            open-direction="bottom" placeholder="Pick a supplier">
-                        </multiselect>
-                    </div>
-                    
-                </div>
+                
 
                 <div class="row form-group">
                     <label for="name" class="col-md-4 col-form-label">Category</label>
@@ -123,7 +112,20 @@
                         </multiselect>
                     </div>
                 </div>
-                <!-- <div class="row form-group">
+                <!-- 
+                    
+                <div class="row form-group">
+                    <label for="name" class="col-md-4 col-form-label">Supplier</label>
+                    <div class="col-md-8">
+                        <multiselect v-model="inputData.contact_id" :options="contact_list"
+                            label="full_name" track-by="contact_id" :searchable="true" :multiple="false"
+                            :close-on-select="true" :clear-on-select="false" :preserve-search="true" :class="{ 'hasError': $v.inputData.contact_id.$error }"
+                            open-direction="bottom" placeholder="Pick a supplier">
+                        </multiselect>
+                    </div>
+                    
+                </div>
+                    <div class="row form-group">
                     <label for="name" class="col-md-4 col-form-label">Sub Category</label>
                     <div class="col-md-8">
                         <multiselect v-model="inputData.selected_sub_product_categorie_id" :options="sub_category_list"
@@ -305,7 +307,7 @@
                     selected_sub_product_categorie_id: '',
                     selected_manufacture_id: '',
                     selected_brand_id: '',
-                    contact_id: '',
+                    contact_id: 0,
                     review_item_lists:[],
                     support_item_lists:[],
                     selected_item_type: 0,
@@ -825,7 +827,7 @@ validations: {
         },
         // selected_sub_product_categorie_id: { required },
         selected_product_categorie_id: { required },
-        contact_id: { required },
+        // contact_id: { required },
         // selected_manufacture_id: { required },
         // selected_brand_id: { required },
     }
