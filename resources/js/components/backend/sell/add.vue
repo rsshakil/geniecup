@@ -212,6 +212,14 @@ changeDateformat(){
     this.inputData.manual_at = ddd;
   }
 },
+getCurDate(){
+                var currentDate = new Date();
+                console.log(currentDate);
+    
+                var formatted_date = new Date().toJSON().slice(0,10).replace(/-/g,'-');
+                console.log(formatted_date);
+                this.inputData.manual_at = formatted_date;
+               },
 addStock(){
   var post_data = {
         client_id: Globals.user_info_client_id,
@@ -327,6 +335,7 @@ removeproductattr: function (index) {
 
   created() {
     this.loadProductDataselect_2();
+    getCurDate();
     this.inputData.client_id=Globals.user_info_client_id,
     this.customerData.client_id=Globals.user_info_client_id,
     console.log('url');

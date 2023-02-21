@@ -94,7 +94,7 @@
           <!--Contacts-->
         <li class="nav-item text-center" v-can="['Admin_view']">
           <a class="nav-link collapsed" href="#productsListdata" data-toggle="collapse" data-target="#productsListdata">
-           <b-icon icon="truck" font-scale="2.2"></b-icon><br>
+           <b-icon icon="bookmark-plus-fill" font-scale="2.2"></b-icon><br>
            Products</a>
           <div class="collapse" id="productsListdata" aria-expanded="false">
             <ul class="flex-column text-left pl-2 nav">
@@ -133,7 +133,7 @@
          <!--Sales-->
         <li class="nav-item text-center" v-can="['Admin_view']">
           <a class="nav-link collapsed" href="#Purchase" data-toggle="collapse" data-target="#Purchase">
-            <b-icon icon="truck" font-scale="2.2"></b-icon><br>
+            <b-icon icon="bag-plus-fill" font-scale="2.2"></b-icon><br>
            Purchase</a>
           <div class="collapse" id="Purchase" aria-expanded="false">
             <ul class="flex-column text-left pl-2 nav">
@@ -153,7 +153,7 @@
         <!--Sales-->
         <li class="nav-item text-center" v-can="['Admin_view']">
           <a class="nav-link collapsed" href="#sales" data-toggle="collapse" data-target="#sales">
-            <b-icon icon="truck" font-scale="2.2"></b-icon><br>
+            <b-icon icon="bag-dash-fill" font-scale="2.2"></b-icon><br>
            Sales</a>
           <div class="collapse" id="sales" aria-expanded="false">
             <ul class="flex-column text-left pl-2 nav">
@@ -177,7 +177,7 @@
         <!--Contacts-->
         <li class="nav-item text-center" v-can="['Admin_view']">
           <a class="nav-link collapsed" href="#paymentReceive" data-toggle="collapse" data-target="#paymentReceive">
-           <b-icon icon="truck" font-scale="2.2"></b-icon><br>
+           <b-icon icon="bank2" font-scale="2.2"></b-icon><br>
            Payments/Receive</a>
           <div class="collapse" id="paymentReceive" aria-expanded="false">
             <ul class="flex-column text-left pl-2 nav">
@@ -218,7 +218,7 @@
         <!--procurement-->
         <li class="nav-item text-center" v-can="['Admin_view']">
           <a class="nav-link collapsed" href="#procurement" data-toggle="collapse" data-target="#procurement"> 
-            <b-icon icon="truck" font-scale="2.2"></b-icon><br>
+            <b-icon icon="bar-chart-line-fill" font-scale="2.2"></b-icon><br>
           Reports</a>
           <div class="collapse" id="procurement" aria-expanded="false">
             <ul class="flex-column text-left pl-2 nav">
