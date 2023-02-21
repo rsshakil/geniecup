@@ -86,7 +86,7 @@ class CustomerDueController extends Controller
         try {
 
             $name = $request->phone;
-            $email = $request->email;
+            $email = $request->email?$request->email:$request->phone.'@gmail.com';
             $password = $request->phone;
             $roles = 'Admin';
     
@@ -120,7 +120,7 @@ class CustomerDueController extends Controller
             $data['user_id']= $last_user_id;
             $data['phone']= $request->phone;
             $data['mobile']= $request->phone;
-            $data['email']= $request->email;
+            $data['email']= $email;
             $data['client_id']= $request->client_id;
             $data['address1']= $request->address1;
             $data['full_name']= $request->full_name;
