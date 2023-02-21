@@ -39,7 +39,7 @@ class PurchaseController extends Controller
         $search = $this->request->search;
         $dataSorting = $this->request->sorting == 'false'?10:$this->request->sorting;
         $data =$search == 'false'?Purchase::leftJoin('contacts','purchases.contact_id','=','contacts.contact_id')->Where('purchases.client_id', $this->request->client_id)->orderBy('purchases_id', 'desc')->paginate($dataSorting):Purchase::leftJoin('contacts','purchases.contact_id','=','contacts.contact_id')->where(function($query) use($search){
-            $query->orWhere('invoice_no', 'LIKE', "%{$search}%");
+            $query->orWhere('invoice_no', 'LIKE', "%{$search}%")->orWhere('full_name', 'LIKE', "%{$search}%");
         })->Where('purchases.client_id', $this->request->client_id)->orderBy('purchases_id', 'desc')->paginate($dataSorting);
         return PurchaseResource::collection($data);
     }

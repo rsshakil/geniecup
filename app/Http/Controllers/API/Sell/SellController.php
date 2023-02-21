@@ -36,7 +36,7 @@ class SellController extends Controller
         $search = $this->request->search;
         $dataSorting = $this->request->sorting == 'false'?10:$this->request->sorting;
         $data =$search == 'false'?Sell::leftJoin('contacts','sells.contact_id','=','contacts.contact_id')->Where('sells.client_id', $this->request->client_id)->orderBy('sell_id', 'desc')->paginate($dataSorting):Sell::leftJoin('contacts','sells.contact_id','=','contacts.contact_id')->where(function($query) use($search){
-            $query->orWhere('invoice_no', 'LIKE', "%{$search}%");
+            $query->orWhere('invoice_no', 'LIKE', "%{$search}%")->orWhere('full_name', 'LIKE', "%{$search}%");
         })->Where('sells.client_id', $this->request->client_id)->orderBy('sell_id', 'desc')->paginate($dataSorting);
         return SellResource::collection($data);
     }
