@@ -72,7 +72,7 @@
                             <router-link to="/stocks" class="dropdown-item">Stocks list</router-link>
                             <router-link to="/myblance" class="dropdown-item">Balance sheet</router-link>
                             <router-link to="/mydues" class="dropdown-item">Stores Due</router-link>
-                            <router-link to="/customerdues" class="dropdown-item">Customer Due</router-link>
+                            <router-link to="/customerdues" class="dropdown-item">Customer/Supplier</router-link>
                            
                     </div>
                 </li>   

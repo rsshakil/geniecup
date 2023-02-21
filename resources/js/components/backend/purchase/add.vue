@@ -21,7 +21,7 @@
                         </multiselect>
                     </div>
                     <div class="col-md-1 col-lg-1">
-                      <button class="btn btn-info" @click="addSupplier()">Add Supplier</button>
+                      <button class="btn btn-info" @click="addSupplier()"><b-icon icon="person-plus-fill" font-scale="2.2"></b-icon></button>
                     </div>
                     <div class="col-md-3 col-lg-3">
                     <datetime format="YYYY-MM-DD" width="100%" v-model="inputData.manual_at"></datetime>

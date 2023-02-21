@@ -111,6 +111,25 @@
             </ul>
           </div>
         </li>
+        <li class="nav-item text-center" v-can="['Admin_view']">
+          <a class="nav-link collapsed" href="#pos" data-toggle="collapse" data-target="#pos">
+            <b-icon icon="cart-plus-fill" font-scale="2.2"></b-icon><br>
+           Buy/Sale</a>
+          <div class="collapse" id="pos" aria-expanded="false">
+            <ul class="flex-column text-left pl-2 nav">
+               <li class="nav-item" v-can="['Admin_view']">
+                <router-link to="/sell/create" class="nav-link">
+                  Sale Product
+                </router-link>
+              </li> 
+               <li class="nav-item" v-can="['Admin_view']">
+                <router-link to="/purchase/create" class="nav-link">
+                  Buy Product
+                </router-link>
+              </li> 
+            </ul>
+          </div>
+        </li>
          <!--Sales-->
         <li class="nav-item text-center" v-can="['Admin_view']">
           <a class="nav-link collapsed" href="#Purchase" data-toggle="collapse" data-target="#Purchase">
@@ -121,6 +140,11 @@
                <li class="nav-item" v-can="['Admin_view']">
                 <router-link to="/purchase" class="nav-link">
                   Purchase list
+                </router-link>
+              </li> 
+               <li class="nav-item" v-can="['Admin_view']">
+                <router-link to="/purchase/create" class="nav-link">
+                  Buy Product
                 </router-link>
               </li> 
             </ul>
@@ -136,6 +160,11 @@
               <li class="nav-item" v-can="['Admin_view']">
                 <router-link to="/sell" class="nav-link">
                   Sales
+                </router-link>
+              </li> 
+              <li class="nav-item" v-can="['Admin_view']">
+                <router-link to="/sell/create" class="nav-link">
+                  Sale Product
                 </router-link>
               </li> 
               
@@ -211,7 +240,7 @@
               </li> 
               <li class="nav-item" v-can="['Admin_view']">
                 <router-link to="/customerdues" class="nav-link">
-                  Customer Due
+                  Customer/Suppplier
                 </router-link>
               </li> 
             </ul>
