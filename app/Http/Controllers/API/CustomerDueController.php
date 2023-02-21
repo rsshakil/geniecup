@@ -42,6 +42,7 @@ class CustomerDueController extends Controller
             DB::raw('SUM(total_paid_amount) AS sum_of_total_paid_amount'),
             DB::raw('SUM(total_due_amount) AS sum_of_total_due_amount'),
             DB::raw('SUM(total_discount_amount) AS sum_of_total_discount_amount'),
+            'contact_id',
             'sell_id',
             'phone',
             'mobile',
@@ -53,8 +54,8 @@ class CustomerDueController extends Controller
         if($search != 'false'){
             $query->where('contacts.full_name', 'LIKE', "%{$search}%");
         }
-        echo $query->toSql();exit;
-        $data = $query->groupBy('sells.contact_id')
+        // echo $query->toSql();exit;
+        $data = $query->groupBy('contacts.contact_id')
         ->orderBy('contacts.full_name','ASC')
         ->paginate($dataSorting);
       

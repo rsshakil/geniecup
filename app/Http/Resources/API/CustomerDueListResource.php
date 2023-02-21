@@ -15,7 +15,7 @@ class CustomerDueListResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'=>$this->sell_id,
+            'id'=>$this->contact_id,
             'full_name'=>$this->full_name,
             'phone'=>$this->phone,
             'paid_amount'=>$this->sum_of_total_paid_amount,
