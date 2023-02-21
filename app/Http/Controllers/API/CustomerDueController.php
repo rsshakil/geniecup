@@ -53,9 +53,9 @@ class CustomerDueController extends Controller
         if($search != 'false'){
             $query->where('contacts.full_name', 'LIKE', "%{$search}%");
         }
-
+        echo $query->toSql();exit;
         $data = $query->groupBy('sells.contact_id')
-        ->orderBy('contacts.contact_id','DESC')
+        ->orderBy('contacts.full_name','ASC')
         ->paginate($dataSorting);
       
        return CustomerDueListResource::collection($data);
