@@ -21,7 +21,7 @@
                         </multiselect>
                     </div>
                     <div class="col-md-1 col-lg-1">
-                      <button class="btn btn-info" @onclick="addSupplier">Add a supplier</button>
+                      <button class="btn btn-info" @click="addSupplier()">Add a supplier</button>
                     </div>
                     <div class="col-md-3 col-lg-3">
                     <datetime format="YYYY-MM-DD" width="100%" v-model="inputData.manual_at"></datetime>
@@ -190,6 +190,7 @@ export default {
   },
   methods: {
     addSupplier(){
+      console.log('add a new sup');
       this.userModalShow=true;
     },
 updatePaidAmount(){
